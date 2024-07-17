@@ -13,7 +13,7 @@ export default async function Page() {
         <div className="bg-red-500 flex flex-col h-dvh">
             {
                 screens.docs[0].layout.map(layout=>{
-                    return <div>{layout.content}</div>
+                    return <div key={layout.id}>{layout.content}</div>
                 })
             }
         </div>
