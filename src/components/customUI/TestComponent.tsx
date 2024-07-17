@@ -20,7 +20,7 @@ import {
 export function TestComponent() {
     return (
         <div className="flex items-center justify-center">
-            {/* <Card className="w-[450px]">
+            <Card className="w-[450px]">
                 <CardHeader>
                     <CardTitle>Test form in Dashboard</CardTitle>
                     <CardDescription>Deploy your new project in one-click.</CardDescription>
@@ -53,7 +53,7 @@ export function TestComponent() {
                     <Button variant="outline">Cancel</Button>
                     <Button>Deploy</Button>
                 </CardFooter>
-            </Card> */}
+            </Card>
         </div>
     )
 }

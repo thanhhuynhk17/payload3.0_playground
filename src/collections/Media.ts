@@ -1,15 +1,18 @@
 import type { CollectionConfig } from 'payload'
 
-import { admins } from '@/collections/Users/access/admins'
-import { adminOrEditor, adminOrEditorFieldLevel } from '@/collections/Users/access/adminOrEditor'
+import { isAdmin } from '@/collections/Users/access/admin'
+import {
+    isAdminOrEditor,
+    isAdminOrEditorFieldLevel,
+} from '@/collections/Users/access/adminOrEditor'
 
 export const Media: CollectionConfig = {
     slug: 'media',
     access: {
-        create: admins,
-        delete: admins,
-        read: adminOrEditor,
-        update: admins,
+        create: isAdminOrEditor,
+        delete: isAdmin,
+        read: isAdminOrEditor,
+        update: isAdmin,
     },
     fields: [
         {
@@ -17,8 +20,8 @@ export const Media: CollectionConfig = {
             type: 'text',
             required: true,
             access: {
-                update: adminOrEditorFieldLevel
-            }
+                update: isAdminOrEditorFieldLevel,
+            },
         },
     ],
     upload: true,

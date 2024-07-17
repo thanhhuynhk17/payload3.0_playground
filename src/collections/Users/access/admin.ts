@@ -3,10 +3,10 @@ import type { Access, FieldAccess } from 'payload'
 import { checkRole } from '@/collections/Users/checkRole'
 
 
-export const admins: Access = ({ req: { user } }) => {
+export const isAdmin: Access = ({ req: { user } }) => {
     return checkRole(['admin'], user)
 }
 
-export const adminsFieldLevel: FieldAccess = ({ req: { user } }) => {
+export const isAdminFieldLevel: FieldAccess = ({ req: { user } }) => {
     return checkRole(['admin'], user)
 }

@@ -1,21 +1,25 @@
 import type { Block } from 'payload'
 
-import { adminsFieldLevel } from '@/collections/Users/access/admins'
-import { editorsFieldLevel } from '@/collections/Users/access/editors'
+import { isAdminFieldLevel } from '@/collections/Users/access/admin'
+import { isEditorFieldLevel } from '@/collections/Users/access/editor'
 
 export const Media: Block = {
     slug: 'media', // required
-    imageURL: 'https://google.com/path/to/image.jpg',
+    // imageURL: 'https://google.com/path/to/image.jpg',
     imageAltText: 'Media thumbnail',
     interfaceName: 'Media Block', // optional
+    labels: {
+        singular: 'Media block',
+        plural: 'Media blocks',
+    },
     fields: [
         // required
         {
             name: 'key',
             type: 'text',
             access: {
-                create: adminsFieldLevel,
-                update: adminsFieldLevel
+                create: isAdminFieldLevel,
+                update: isAdminFieldLevel,
             },
             required: true,
         },
@@ -24,9 +28,9 @@ export const Media: Block = {
             type: 'upload',
             label: 'image',
             relationTo: 'media',
-            access:{
-                update: editorsFieldLevel
-            }
+            access: {
+                update: isEditorFieldLevel,
+            },
         },
     ],
 }

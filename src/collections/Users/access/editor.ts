@@ -2,10 +2,10 @@ import type { Access, FieldAccess } from 'payload'
 
 import { checkRole } from '@/collections/Users/checkRole'
 
-export const editors: Access = ({ req: { user } }) => {
+export const isEditor: Access = ({ req: { user } }) => {
     return checkRole(['editor'], user)
 }
 
-export const editorsFieldLevel: FieldAccess = ({ req: { user } }) => {
+export const isEditorFieldLevel: FieldAccess = ({ req: { user } }) => {
     return checkRole(['editor'], user)
 }

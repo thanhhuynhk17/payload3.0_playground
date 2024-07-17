@@ -61,9 +61,9 @@ export interface User {
  */
 export interface Screen {
   id: string;
-  name?: string | null;
+  key: string;
   isVisible?: boolean | null;
-  layout?: (CTABlock | MediaBlock)[] | null;
+  layout?: (CTABlock | MediaBlock | TextBlock | ArrayTextBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -108,6 +108,35 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Text Block".
+ */
+export interface TextBlock {
+  key: string;
+  content: string;
+  subContent?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'textblock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Array text Block".
+ */
+export interface ArrayTextBlock {
+  key: string;
+  array?:
+    | {
+        itemContent?: string | null;
+        itemSubContent?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'arrayText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

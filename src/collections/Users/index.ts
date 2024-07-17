@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { admins, adminsFieldLevel } from '@/collections/Users/access/admins'
+import { isAdmin, isAdminFieldLevel } from '@/collections/Users/access/admin'
 import { adminOrSelf } from '@/collections/Users/access/adminOrSelf'
 import { anyone } from '@/collections/Users/access/anyone'
 import { checkRole } from './checkRole'
@@ -11,15 +11,15 @@ export const Users: CollectionConfig = {
     slug: 'users',
     access: {
         admin: ({ req: { user } }) => {
-            return (checkRole(['admin'], user) || checkRole(['editor'], user))
+            return checkRole(['admin'], user) || checkRole(['editor'], user)
         },
         create: anyone,
-        delete: admins,
+        delete: isAdmin,
         read: adminOrSelf,
         update: adminOrSelf,
     },
     admin: {
-        defaultColumns: ['name', 'email'],
+        // defaultColumns: ['name', 'email'],
         useAsTitle: 'name',
     },
     auth: true,
@@ -35,8 +35,8 @@ export const Users: CollectionConfig = {
             saveToJWT: true,
             type: 'select',
             access: {
-                create: adminsFieldLevel,
-                update: adminsFieldLevel,
+                create: isAdminFieldLevel,
+                update: isAdminFieldLevel,
             },
             defaultValue: ['user'],
             hasMany: true,

@@ -2,13 +2,12 @@ import type { Access, FieldAccess } from 'payload'
 
 import { checkRole } from '@/collections/Users/checkRole'
 
-
-export const adminOrEditor: Access = ({ req: { user } }) => {
-    if(user){
-        if(checkRole(['admin'], user)){
+export const isAdminOrEditor: Access = ({ req: { user } }) => {
+    if (user) {
+        if (checkRole(['admin'], user)) {
             return true
         }
-        if(checkRole(['editor'], user)){
+        if (checkRole(['editor'], user)) {
             return true
         }
     }
@@ -16,12 +15,12 @@ export const adminOrEditor: Access = ({ req: { user } }) => {
     return false
 }
 
-export const adminOrEditorFieldLevel: FieldAccess = ({ req: { user }})=>{
-    if(user){
-        if(checkRole(['admin'], user)){
+export const isAdminOrEditorFieldLevel: FieldAccess = ({ req: { user } }) => {
+    if (user) {
+        if (checkRole(['admin'], user)) {
             return true
         }
-        if(checkRole(['editor'], user)){
+        if (checkRole(['editor'], user)) {
             return true
         }
     }

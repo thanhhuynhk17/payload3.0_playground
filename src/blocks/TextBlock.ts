@@ -1,16 +1,15 @@
 import type { Block } from 'payload'
 
 import { isAdminFieldLevel } from '@/collections/Users/access/admin'
-import { isAdminOrEditorFieldLevel } from '@/collections/Users/access/adminOrEditor'
 
-export const CallToAction: Block = {
-    slug: 'cta', // required
+export const TextBlock: Block = {
+    slug: 'textblock', // required
     // imageURL: 'https://google.com/path/to/image.jpg',
-    imageAltText: 'CTA thumbnail',
-    interfaceName: 'CTA Block', // optional
+    imageAltText: 'Text block thumbnail',
+    interfaceName: 'Text Block', // optional
     labels: {
-        singular: 'Call to action block',
-        plural: 'Call to action blocks',
+        singular: 'Text block',
+        plural: 'Text blocks',
     },
     fields: [
         // required
@@ -27,18 +26,10 @@ export const CallToAction: Block = {
             name: 'content',
             type: 'text',
             required: true,
-            access: {
-                update: isAdminOrEditorFieldLevel,
-            },
         },
         {
-            name: 'href',
+            name: 'subContent',
             type: 'text',
-            label: 'Link',
-            defaultValue: '#',
-            access: {
-                update: isAdminOrEditorFieldLevel,
-            },
-        }
+        },
     ],
 }

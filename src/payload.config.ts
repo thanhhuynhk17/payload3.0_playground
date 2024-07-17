@@ -6,16 +6,13 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-// [Begin] Access Control
-import {admins} from '@/collections/Users/access/admins'
-import {editors} from '@/collections/Users/access/editors'
-// [End] Access Control
+
 
 import { Users } from './collections/Users'
 
 import { TestComponent } from '@/components/customUI/TestComponent'
 import { BeforeLoginComponent } from '@/components/customUI/BeforeLoginComponent'
-import { Screen } from '@/collections/Screen'
+import { Screens } from '@/collections/Screens'
 import { Media } from '@/collections/Media'
 
 const filename = fileURLToPath(import.meta.url)
@@ -26,14 +23,10 @@ export default buildConfig({
         user: Users.slug,
         components: {
             beforeDashboard: [TestComponent],
-            beforeLogin: [BeforeLoginComponent]
-        }
+            beforeLogin: [BeforeLoginComponent],
+        },
     },
-    collections: [
-        Users,
-        Screen,
-        Media
-    ],
+    collections: [Users, Screens, Media],
     editor: lexicalEditor(),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {

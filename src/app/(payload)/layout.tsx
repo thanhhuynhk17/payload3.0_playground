@@ -6,12 +6,11 @@ import { RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
 
 import './custom.scss'
-import '@/app/globals.css'
 
 type Args = {
     children: React.ReactNode
 }
-
+console.log('payload layout')
 const Layout = ({ children }: Args) => <RootLayout config={configPromise}>{children}</RootLayout>
 
 export default Layout
