@@ -1,5 +1,5 @@
 
-export default function Media({ key, mediaImg}) {
+export default async function Media({ key, mediaImg}) {
     return (
         <>
             <div>key{key}</div>

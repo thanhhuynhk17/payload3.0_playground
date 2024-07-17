@@ -1,5 +1,5 @@
 
-export default function TextBlock({ key, content, subContent}) {
+export default async function TextBlock({ key, content, subContent}) {
     return (
         <>
             <div>key{key}</div>

@@ -1,6 +1,6 @@
 import { blocks } from '../blocks/blockList'
 
-export default function RenderBlocks({ layout }) {
+export default async function RenderBlocks({ layout }) {
     return (
         <>
             {layout.map((block, i) => {

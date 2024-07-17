@@ -1,5 +1,5 @@
 
-export default function ArrayTextBlock({ key, array }) {
+export default async function ArrayTextBlock({ key, array }) {
     return (
         <>
             <div>key{key}</div>

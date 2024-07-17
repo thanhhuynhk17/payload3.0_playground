@@ -1,5 +1,5 @@
 
-export default function CallToAction({ key, content, href }) {
+export default async function CallToAction({ key, content, href }) {
     return (
         <>
             <div>key{key}</div>
