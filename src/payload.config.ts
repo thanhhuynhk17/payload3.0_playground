@@ -6,8 +6,6 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-
-
 import { Users } from './collections/Users'
 
 import { TestComponent } from '@/components/customUI/TestComponent'
@@ -27,6 +25,26 @@ export default buildConfig({
         },
     },
     collections: [Users, Screens, Media],
+    localization: {
+        locales: [
+            {
+                label: {
+                    en: 'English',
+                    vi: 'Tiếng Anh',
+                },
+                code: 'en',
+            },
+            {
+                label: {
+                    en: 'Vietnamese',
+                    vi: 'Tiếng Việt',
+                },
+                code: 'vi',
+            },
+        ],
+        defaultLocale: 'en',
+        fallback: true,
+    },
     editor: lexicalEditor(),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {

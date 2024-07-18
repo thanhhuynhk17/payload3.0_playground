@@ -18,7 +18,7 @@ export interface Config {
     'payload-migrations': PayloadMigration;
   };
   globals: {};
-  locale: null;
+  locale: 'en' | 'vi';
   user: User & {
     collection: 'users';
   };

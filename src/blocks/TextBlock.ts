@@ -26,10 +26,12 @@ export const TextBlock: Block = {
             name: 'content',
             type: 'text',
             required: true,
+            localized: true
         },
         {
             name: 'subContent',
             type: 'text',
+            localized: true
         },
     ],
 }

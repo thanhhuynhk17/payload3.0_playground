@@ -30,6 +30,7 @@ export const CallToAction: Block = {
             access: {
                 update: isAdminOrEditorFieldLevel,
             },
+            localized: true
         },
         {
             name: 'href',
