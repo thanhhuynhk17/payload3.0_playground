@@ -2,21 +2,25 @@ import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
+import { cn } from '@/lib/utils'
 
-const inter = Inter({ subsets: ['vietnamese'] })
+const fontHeading = Inter({
+    subsets: ['vietnamese'], // latin
+    display: 'swap',
+    variable: '--font-heading',
+})
 
-export default async function RootLayout({
-    // Layouts must accept a children prop.
-    // This will be populated with nested layouts or pages
-    children,
-}: {
-    children: React.ReactNode
-}) {
+const fontBody = Inter({
+    subsets: ['vietnamese'], // latin
+    display: 'swap',
+    variable: '--font-body',
+})
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <main>{children}</main>
-                <Toaster />
+            <body className={cn('antialiased', fontHeading.variable, fontBody.variable)}>
+                {children}
             </body>
         </html>
     )

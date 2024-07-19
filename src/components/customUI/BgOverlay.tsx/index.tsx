@@ -11,8 +11,7 @@ export function BgOverlay({ url }: TBgOverlay) {
             <div
                 className={`
             absolute inset-0
-            bg-gradient-to-t
-            from-base60 to-[rgba(29,29,27,0.5)]
+            bg-base60 opacity-1
             h-screen w-screen
         `}
             />
