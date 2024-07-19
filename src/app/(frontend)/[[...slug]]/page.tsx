@@ -23,9 +23,13 @@ hover:drop-shadow-[0px_0px_4px_rgba(249,242,149,0.8)]
 transition-all duration-300 ease-in-out
 cursor-pointer
 `
+interface PageProps {
+    params: { slug: string };
+    searchParams: { [key: string]: string | string[] | undefined };
+}
 
 // https://mycolor.space/gradient3?ori=circle&hex=%23F9F295&hex2=%23E0AA3E&hex3=%23B88A44&submit=submit
-export default async function Page({ slug }: { slug: string }) {
+export default async function Page({ params, searchParams }: PageProps) {
     const payload = await getPayloadHMR({ config })
     let layouts
     let highlightStats
