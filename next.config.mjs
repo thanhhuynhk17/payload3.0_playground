@@ -14,7 +14,11 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'pkvgroup.vn',
-                port: '443'
+            },
+            {
+                protocol: 'https',
+                hostname: 'drive.usercontent.google.com',
+                port: ''
             },
         ],
     },
