@@ -88,7 +88,7 @@ export interface MediaBlock {
   mediaImg?: string | Media | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'media';
+  blockType: 'mediablock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

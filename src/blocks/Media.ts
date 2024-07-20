@@ -4,7 +4,7 @@ import { isAdminFieldLevel } from '@/collections/Users/access/admin'
 import { isEditorFieldLevel } from '@/collections/Users/access/editor'
 
 export const Media: Block = {
-    slug: 'media', // required
+    slug: 'mediablock', // required
     // imageURL: 'https://google.com/path/to/image.jpg',
     imageAltText: 'Media thumbnail',
     interfaceName: 'Media Block', // optional
