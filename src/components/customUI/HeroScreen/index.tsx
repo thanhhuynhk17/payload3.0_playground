@@ -50,7 +50,7 @@ export default async function HeroScreen({
 
                 <div
                     className={`w-full
-                    grow lg:aspect-[4/3] relative cursor-pointer border border-primary30/10
+                    grow lg:aspect-[4/3] lg-max-w-1/2 relative cursor-pointer border border-primary30/10
                     drop-shadow-[0px_4px_10px_rgba(181,132,16,0.5)] rounded-xl
                     hover:drop-shadow-[0px_0px_16px_rgba(181,132,16,1)]
                     transition-all duration-500 ease-in-out
