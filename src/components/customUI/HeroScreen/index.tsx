@@ -24,12 +24,11 @@ export default async function HeroScreen({
     let mediaLayout: MediaBlock | undefined = undefined
     let mediaImg: Media | undefined = undefined
     let headingBlock: TextBlock | undefined = undefined
-    try {
-        mediaLayout = layouts?.filter((layout) => layout.key === 'backgroundImg')[0] as MediaBlock
-        mediaImg = mediaLayout.mediaImg as Media
-        headingBlock = layouts?.filter((layout) => layout.key === 'heading')[0] as TextBlock
+    
+    mediaLayout = layouts?.filter((layout) => layout.key === 'backgroundImg')[0] as MediaBlock
+    mediaImg = mediaLayout.mediaImg as Media
+    headingBlock = layouts?.filter((layout) => layout.key === 'heading')[0] as TextBlock
 
-    } catch (error) {}
 
     return (
         <section className="bg-background min-h-dvh py-24 lg:py-32 flex ">
