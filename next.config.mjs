@@ -17,7 +17,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'drive.usercontent.google.com',
+                hostname: 'payload-playground-tawny.vercel.app',
                 port: ''
             },
         ],
