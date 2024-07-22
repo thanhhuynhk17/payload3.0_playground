@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 import { isAdminFieldLevel } from '@/collections/Users/access/admin'
 import { isEditorFieldLevel } from '@/collections/Users/access/editor'
+import { isAdminOrEditorFieldLevel } from '@/collections/Users/access/adminOrEditor'
 
 export const Media: Block = {
     slug: 'mediablock', // required
@@ -29,7 +30,8 @@ export const Media: Block = {
             label: 'image',
             relationTo: 'media',
             access: {
-                update: isEditorFieldLevel,
+                create: isAdminOrEditorFieldLevel,
+                update: isAdminOrEditorFieldLevel,
             },
         },
     ],

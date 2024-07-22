@@ -56,10 +56,9 @@ export default async function HeroScreen({
                     transition-all duration-500 ease-in-out
                     `}>
                     <Image
-                        // src={`http://localhost:3000${mediaImg?.url}`}
-                        src={`https://pkvgroup.vn/assets/background.jpg`}
+                        src={`${process.env.PAYLOAD_PUBLIC_SERVER_URL}${mediaImg?.url}`}
                         fill
-                        alt="alt ne"
+                        alt={`${mediaImg?.alt}`}
                         className="rounded-xl object-cover aspect-auto"
                     />
                 </div>
