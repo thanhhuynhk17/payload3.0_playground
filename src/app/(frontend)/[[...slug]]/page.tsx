@@ -16,8 +16,9 @@ import type { ArrayTextBlock, Screen } from '@/payload-types'
 const goldenContentTW = `
 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl
 
-bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-from-[#F9F295] via-[#E0AA3E] to-[#B88A44] bg-clip-text text-transparent
+bg-gradient-to-tr
+from-[#E0AA3E] to-[#F9F295]
+bg-clip-text text-transparent
 drop-shadow-[0px_0px_4px_rgba(249,242,149,0.5)]
 hover:drop-shadow-[0px_0px_4px_rgba(249,242,149,0.8)]
 transition-all duration-300 ease-in-out

@@ -23,7 +23,7 @@ cursor-pointer
 
 export default function Navbar() {
     return (
-        <header className="bg-background shadow absolute top-0 left-0 right-0 max-h-[80px]">
+        <header className="z-50 bg-background shadow absolute top-0 left-0 right-0 max-h-[80px]">
             <div className="container flex items-center justify-between py-4 px-4 md:px-6">
                 <Link href="#" className="flex items-center" prefetch={false}>
                     <MountainIcon className="h-6 w-6 mr-2" />

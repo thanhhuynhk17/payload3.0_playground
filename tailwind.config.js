@@ -28,7 +28,7 @@ export default {
             colors: {
                 // [BEGIN] custom colors
                 base60: '#1D1D1B',
-                primary30: '#B58410',
+                primary30: '#E0AA3E',
                 secondary10: '#F5F5F5',
                 txtcolor: '#F5F5F5',
                 // [END] custom colors
