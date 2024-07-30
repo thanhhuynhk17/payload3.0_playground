@@ -54,7 +54,7 @@ const invoices = [
     },
 ]
 
-export function TableComponent({ className }: { className: string }) {
+export function TableComponent({ className }: { className?: string }) {
     return (
         <Table className={className}>
             <TableCaption>A list of your recent invoices.</TableCaption>

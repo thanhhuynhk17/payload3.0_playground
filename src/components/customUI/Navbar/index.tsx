@@ -58,15 +58,14 @@ export default function Navbar() {
                 <Link
                     href={`https://services.tiktokshop.com/open/authorize?service_id=${process.env.NEXT_PUBLIC_TIKTOK_SERVICE_ID}`}
                     className={`
-            w-full md:max-w-max
-            text-center rounded-md border border-input 
-            bg-gradient-to-tr hover:bg-none hover:text-violet-400
-            from-violet-400 to-purple-300
-            transition-all duration-500 ease-in-out
-            px-8 py-2 text-lg text-txtcolor font-medium
-    shadow-[0px_0px_4px_rgba(167,139,250,0.5)]
-    hover:shadow-[0px_0px_4px_rgba(167,139,250,1)]
-    `}
+                        w-full md:max-w-max
+                        text-center rounded-md border-input border shadow-md
+                        bg-none text-violet-400
+                        hover:bg-gradient-to-tr hover:text-txtcolor 
+                        from-violet-400 to-purple-300
+                        transition-all duration-300 ease-in-out
+                        px-8 py-2 text-lg font-medium
+                        `}
                     prefetch={false}>
                     Authorization
                 </Link>

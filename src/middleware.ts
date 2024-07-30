@@ -6,16 +6,18 @@ const COOKIES_AUTH_KEY = 'tiktokAuth'
 const http = new HttpClient()
 // This function can be marked `async` if using `await` inside
 export async function middleware(req: NextRequest, res: NextResponse) {
-    res = NextResponse.next()
     const token = req.cookies.get(COOKIES_AUTH_KEY)
     if (token) {
         console.log('Token already exists!')
         const seller_name = req.cookies.get('seller_name')
         res = NextResponse.rewrite(
-            new URL(`/?seller_name=${seller_name?.value}`, req.url)
+            new URL(
+                `${req.nextUrl.origin}${req.nextUrl.pathname}?seller_name=${seller_name?.value}`
+            )
         )
         return res
     }
+
     console.log('Token not found')
     if (req.nextUrl.searchParams.get('code')) {
         const authCode = req.nextUrl.searchParams.get('code')
@@ -47,6 +49,11 @@ export async function middleware(req: NextRequest, res: NextResponse) {
             return
         }
 
+        res = NextResponse.redirect(
+            new URL(
+                `${req.nextUrl.origin}${req.nextUrl.pathname}?seller_name=${authRes.data.seller_name}`
+            )
+        )
         // toast.success("Xác thực thành công!");
         res.cookies.set(COOKIES_AUTH_KEY, authRes.data.access_token)
         res.cookies.set('seller_name', authRes.data.seller_name)
