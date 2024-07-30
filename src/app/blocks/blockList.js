@@ -1,11 +1,7 @@
-import CallToAction from "./CallToAction";
-import Media from "./Media";
-import TextBlock from "./TextBlock";
-import ArrayTextBlock from "./ArrayTextBlock";
+import IncomePage from '@/components/customUI/IncomePage'
+import Products from '@/components/customUI/Products'
 
 export const blocks = {
-    cta: CallToAction,
-    textblock: TextBlock,
-    media: Media,
-    arrayText: ArrayTextBlock
+    index: IncomePage,
+    product: Products,
 }

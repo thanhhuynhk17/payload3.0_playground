@@ -5,57 +5,71 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 
 import { cn } from '@/lib/utils'
-import Locales from '../Locales'
-import { CSSProperties, JSX } from 'react'
+import { usePathname } from 'next/navigation'
 
 const goldenContentTW = `
 tracking-tighter
-bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-from-[#F9F295] via-[#E0AA3E] to-[#B88A44] bg-clip-text text-transparent
-drop-shadow-[0px_0px_4px_rgba(249,242,149,0.2)]
-hover:drop-shadow-[0px_0px_4px_rgba(249,242,149,0.8)]
+bg-gradient-to-r bg-clip-text text-transparent
+from-violet-400 to-purple-300
 transition-all duration-300 ease-in-out
 cursor-pointer
 `
 
 export default function Navbar() {
+    const prefix = usePathname()
+
     return (
         <header className="z-50 bg-background shadow absolute top-0 left-0 right-0 max-h-[80px]">
             <div className="container flex items-center justify-between py-4 px-4 md:px-6">
-                <Link href="#" className="flex items-center" prefetch={false}>
+                <Link href="/" className="flex items-center" prefetch={false}>
                     <MountainIcon className="h-6 w-6 mr-2" />
-                    <span className={cn(goldenContentTW, `text-2xl font-bold pr-4`)}>PKV Group</span>
+                    <span className={cn(goldenContentTW, `text-2xl font-bold pr-4`)}>
+                        Lotus Shop
+                    </span>
                 </Link>
                 <nav className="hidden md:flex items-center space-x-6">
                     <Link
-                        href="#"
-                        className="text-muted-foreground hover:text-foreground"
+                        href="/"
+                        className={cn(
+                            `
+                        hover:text-violet-400
+                        transition-all duration-300 ease-in-out
+                        text-lg font-medium`,
+                            prefix === '/' ? 'text-violet-400' : 'text-violet-200'
+                        )}
                         prefetch={false}>
-                        Home
+                        Income
                     </Link>
                     <Link
-                        href="#screen2"
-                        className="text-muted-foreground hover:text-foreground"
+                        href="/product"
+                        className={cn(
+                            `
+                        hover:text-violet-400
+                        transition-all duration-300 ease-in-out
+                        text-lg font-medium`,
+                            prefix === '/product' ? 'text-violet-400' : 'text-violet-200'
+                        )}
                         prefetch={false}>
-                        Founder
-                    </Link>
-                    <Link
-                        href="#screen3"
-                        className="text-muted-foreground hover:text-foreground"
-                        prefetch={false}>
-                        About
-                    </Link>
-                    <Link
-                        href="#screen4"
-                        className="text-muted-foreground hover:text-foreground"
-                        prefetch={false}>
-                        Contact
+                        Product
                     </Link>
                 </nav>
-                {/* <Locales /> */}
+                <Link
+                    href={`https://services.tiktokshop.com/open/authorize?service_id=${process.env.NEXT_PUBLIC_TIKTOK_SERVICE_ID}`}
+                    className={`
+            w-full md:max-w-max
+            text-center rounded-md border border-input 
+            bg-gradient-to-tr hover:bg-none hover:text-violet-400
+            from-violet-400 to-purple-300
+            transition-all duration-500 ease-in-out
+            px-8 py-2 text-lg text-txtcolor font-medium
+    shadow-[0px_0px_4px_rgba(167,139,250,0.5)]
+    hover:shadow-[0px_0px_4px_rgba(167,139,250,1)]
+    `}
+                    prefetch={false}>
+                    Authorization
+                </Link>
             </div>
         </header>
     )
@@ -82,22 +96,3 @@ function MountainIcon(props: IconProps) {
         </svg>
     )
 }
-
-// function XIcon(props: unknown) {
-//     return (
-//         <svg
-//             {...props}
-//             xmlns="http://www.w3.org/2000/svg"
-//             width="24"
-//             height="24"
-//             viewBox="0 0 24 24"
-//             fill="none"
-//             stroke="currentColor"
-//             strokeWidth="2"
-//             strokeLinecap="round"
-//             strokeLinejoin="round">
-//             <path d="M18 6 6 18" />
-//             <path d="m6 6 12 12" />
-//         </svg>
-//     )
-// }
