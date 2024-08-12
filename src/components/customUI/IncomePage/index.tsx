@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import type { Screen, MediaBlock, TextBlock, Media } from '@/payload-types'
 import { TableComponent } from '../TableComponent'
+import { MyDateRangePicker } from '../MyDateRangePicker'
 
 const goldenContentTW = `
 text-2xl
@@ -31,13 +32,14 @@ export default async function IncomePage({ sellerName }: TIncomePage) {
                     <span className={cn(goldenContentTW, 'absolute blur-xl select-none ')}>
                         {sellerName}
                     </span>
-                    <h2 className={cn(goldenContentTW, 'cursor-pointer')}>{sellerName}</h2>
+                    <h2 className={cn(goldenContentTW, 'cursor-pointer')}>{sellerName.normalize('NFKC')}</h2>
                 </div>
             )}
             <p className="text-xl font-bold text-slate-400">{headingBlock}</p>
 
             <div className="w-full">
-                <TableComponent className={'mx-auto'} />
+                <MyDateRangePicker></MyDateRangePicker>
+                {/* <TableComponent className={'mx-auto'} /> */}
             </div>
         </section>
     )

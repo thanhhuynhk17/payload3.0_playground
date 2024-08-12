@@ -8,6 +8,7 @@ import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+import { API_URL, OAUTH_URL } from '@/lib/constants'
 
 const goldenContentTW = `
 tracking-tighter

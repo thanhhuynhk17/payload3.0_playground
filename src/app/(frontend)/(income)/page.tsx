@@ -5,7 +5,6 @@
  */
 import { cn } from '@/lib/utils'
 
-import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
 import IncomePage from '@/components/customUI/IncomePage'
 import type { ArrayTextBlock, Screen } from '@/payload-types'
@@ -18,8 +17,7 @@ type TPageProps = {
 
 // https://mycolor.space/gradient3?ori=circle&hex=%23F9F295&hex2=%23E0AA3E&hex3=%23B88A44&submit=submit
 export default async function Page({ params, searchParams }: TPageProps) {
-    const payload = await getPayloadHMR({ config })
-    const seller_name= searchParams.seller_name as string | undefined
+    const seller_name = searchParams.seller_name as string | undefined
     console.log('params', searchParams)
 
     return <IncomePage sellerName={seller_name} />
